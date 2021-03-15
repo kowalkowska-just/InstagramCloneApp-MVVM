@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		D119EE9E25FFF0C900745E64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EE9D25FFF0C900745E64 /* AppDelegate.swift */; };
 		D119EEA025FFF0C900745E64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EE9F25FFF0C900745E64 /* SceneDelegate.swift */; };
-		D119EEA225FFF0C900745E64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EEA125FFF0C900745E64 /* ViewController.swift */; };
-		D119EEA525FFF0C900745E64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D119EEA325FFF0C900745E64 /* Main.storyboard */; };
 		D119EEA725FFF0CC00745E64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D119EEA625FFF0CC00745E64 /* Assets.xcassets */; };
 		D119EEAA25FFF0CC00745E64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D119EEA825FFF0CC00745E64 /* LaunchScreen.storyboard */; };
+		D119EEBA25FFF76100745E64 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EEB925FFF76100745E64 /* MainTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D119EE9A25FFF0C900745E64 /* InstagramApp-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InstagramApp-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D119EE9D25FFF0C900745E64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D119EE9F25FFF0C900745E64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D119EEA125FFF0C900745E64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D119EEA425FFF0C900745E64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D119EEA625FFF0CC00745E64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D119EEA925FFF0CC00745E64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D119EEAB25FFF0CC00745E64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D119EEB925FFF76100745E64 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,70 @@
 		D119EE9C25FFF0C900745E64 /* InstagramApp-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				D119EEB825FFF56900745E64 /* Model */,
+				D119EEB725FFF56600745E64 /* View */,
+				D119EEB625FFF56100745E64 /* ViewModel */,
+				D119EEB525FFF55C00745E64 /* Controller */,
+				D119EEB425FFF54F00745E64 /* API */,
+				D119EEB325FFF54400745E64 /* Utils */,
+				D119EEBF25FFF84A00745E64 /* SupportFiles */,
+			);
+			path = "InstagramApp-MVVM";
+			sourceTree = "<group>";
+		};
+		D119EEB325FFF54400745E64 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D119EEB425FFF54F00745E64 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D119EEB525FFF55C00745E64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D119EEB925FFF76100745E64 /* MainTabController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D119EEB625FFF56100745E64 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D119EEB725FFF56600745E64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D119EEB825FFF56900745E64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D119EEBF25FFF84A00745E64 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
 				D119EE9D25FFF0C900745E64 /* AppDelegate.swift */,
 				D119EE9F25FFF0C900745E64 /* SceneDelegate.swift */,
-				D119EEA125FFF0C900745E64 /* ViewController.swift */,
-				D119EEA325FFF0C900745E64 /* Main.storyboard */,
 				D119EEA625FFF0CC00745E64 /* Assets.xcassets */,
 				D119EEA825FFF0CC00745E64 /* LaunchScreen.storyboard */,
 				D119EEAB25FFF0CC00745E64 /* Info.plist */,
 			);
-			path = "InstagramApp-MVVM";
+			name = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +179,6 @@
 			files = (
 				D119EEAA25FFF0CC00745E64 /* LaunchScreen.storyboard in Resources */,
 				D119EEA725FFF0CC00745E64 /* Assets.xcassets in Resources */,
-				D119EEA525FFF0C900745E64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +189,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D119EEA225FFF0C900745E64 /* ViewController.swift in Sources */,
 				D119EE9E25FFF0C900745E64 /* AppDelegate.swift in Sources */,
+				D119EEBA25FFF76100745E64 /* MainTabController.swift in Sources */,
 				D119EEA025FFF0C900745E64 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +198,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D119EEA325FFF0C900745E64 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D119EEA425FFF0C900745E64 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D119EEA825FFF0CC00745E64 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
