@@ -19,6 +19,8 @@
 		D119EECE26001D5400745E64 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EECD26001D5400745E64 /* ProfileController.swift */; };
 		D119EED1260039FA00745E64 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED0260039FA00745E64 /* FeedCell.swift */; };
 		D119EED426003B8C00745E64 /* Extension - UIView - Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED326003B8C00745E64 /* Extension - UIView - Constraints.swift */; };
+		D119EED726016EB400745E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED626016EB400745E64 /* LoginController.swift */; };
+		D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED926016EC900745E64 /* RegistrationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		D119EECD26001D5400745E64 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		D119EED0260039FA00745E64 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D119EED326003B8C00745E64 /* Extension - UIView - Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - Constraints.swift"; sourceTree = "<group>"; };
+		D119EED626016EB400745E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		D119EED926016EC900745E64 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		D119EEB525FFF55C00745E64 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D119EEDC26016ED300745E64 /* Authentication */,
 				D119EEB925FFF76100745E64 /* MainTabController.swift */,
 				D119EEC126001CC500745E64 /* FeedController.swift */,
 				D119EEC426001CEF00745E64 /* SearchController.swift */,
@@ -139,6 +144,15 @@
 				D119EEAB25FFF0CC00745E64 /* Info.plist */,
 			);
 			name = SupportFiles;
+			sourceTree = "<group>";
+		};
+		D119EEDC26016ED300745E64 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D119EED626016EB400745E64 /* LoginController.swift */,
+				D119EED926016EC900745E64 /* RegistrationController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D119EED726016EB400745E64 /* LoginController.swift in Sources */,
 				D119EE9E25FFF0C900745E64 /* AppDelegate.swift in Sources */,
 				D119EEC526001CEF00745E64 /* SearchController.swift in Sources */,
 				D119EEBA25FFF76100745E64 /* MainTabController.swift in Sources */,
@@ -219,6 +234,7 @@
 				D119EEC826001D1800745E64 /* ImageSelectorController.swift in Sources */,
 				D119EEC226001CC500745E64 /* FeedController.swift in Sources */,
 				D119EECE26001D5400745E64 /* ProfileController.swift in Sources */,
+				D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */,
 				D119EED1260039FA00745E64 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
