@@ -7,7 +7,9 @@
 
 import UIKit
 
-class FeedController: UIViewController {
+private let reuseIdentifier = "Cell"
+
+class FeedController: UICollectionViewController {
 
     //MARK: - Properties
     
@@ -15,8 +17,36 @@ class FeedController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        configureUI()
     }
     
     //MARK: - Helper Functions
+    
+    private func configureUI() {
+        collectionView.backgroundColor = .white
+        
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+}
+
+//MARK: - UICollectionVieDataSource
+
+extension FeedController {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = .red
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewFlowLayout - Setting a size of cells
+
+extension FeedController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 200)
+    }
 }
