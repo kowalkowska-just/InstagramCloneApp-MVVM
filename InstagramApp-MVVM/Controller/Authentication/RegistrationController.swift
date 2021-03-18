@@ -21,6 +21,6 @@ class RegistrationController: UIViewController {
     //MARK: - Helper Functions
     
     private func setupView() {
-        view.backgroundColor = .systemPink
+        view.addGradientWithColors(.systemPurple, .systemBlue, direction: .topToBottom)
     }
 }
