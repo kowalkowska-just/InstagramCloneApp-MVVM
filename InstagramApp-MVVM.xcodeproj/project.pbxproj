@@ -21,6 +21,7 @@
 		D119EED426003B8C00745E64 /* Extension - UIView - Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED326003B8C00745E64 /* Extension - UIView - Constraints.swift */; };
 		D119EED726016EB400745E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED626016EB400745E64 /* LoginController.swift */; };
 		D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED926016EC900745E64 /* RegistrationController.swift */; };
+		D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F082602B9BB001084C7 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D119EED326003B8C00745E64 /* Extension - UIView - Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - Constraints.swift"; sourceTree = "<group>"; };
 		D119EED626016EB400745E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D119EED926016EC900745E64 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		D19E9F082602B9BB001084C7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D119EED0260039FA00745E64 /* FeedCell.swift */,
+				D19E9F082602B9BB001084C7 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */,
 				D119EED726016EB400745E64 /* LoginController.swift in Sources */,
 				D119EE9E25FFF0C900745E64 /* AppDelegate.swift in Sources */,
 				D119EEC526001CEF00745E64 /* SearchController.swift in Sources */,
