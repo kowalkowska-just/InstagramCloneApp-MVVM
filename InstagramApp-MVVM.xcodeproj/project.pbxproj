@@ -22,6 +22,7 @@
 		D119EED726016EB400745E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED626016EB400745E64 /* LoginController.swift */; };
 		D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED926016EC900745E64 /* RegistrationController.swift */; };
 		D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F082602B9BB001084C7 /* CustomTextField.swift */; };
+		D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D119EED626016EB400745E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D119EED926016EC900745E64 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		D19E9F082602B9BB001084C7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIButton - setAttributedTitle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				D119EED326003B8C00745E64 /* Extension - UIView - Constraints.swift */,
+				D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				D119EEC226001CC500745E64 /* FeedController.swift in Sources */,
 				D119EECE26001D5400745E64 /* ProfileController.swift in Sources */,
 				D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */,
+				D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */,
 				D119EED1260039FA00745E64 /* FeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
