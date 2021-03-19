@@ -40,7 +40,6 @@ class CustomTextField: UITextField {
         setHeight(50)
         attributedPlaceholder = NSAttributedString(string: placeholder,
                                                    attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
-        keyboardType = .emailAddress
         isSecureTextEntry = isSecure
     }
 }

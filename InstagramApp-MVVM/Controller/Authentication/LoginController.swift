@@ -17,18 +17,16 @@ class LoginController: UIViewController {
         return iv
     }()
     
-    private let emailTextField = CustomTextField(placeholder: "Email", isSecureTextEntry: false)
+    private let emailTextField : UITextField = {
+        let tf = CustomTextField(placeholder: "Email", isSecureTextEntry: false)
+        tf.keyboardType = .emailAddress
+        return tf
+    }()
     
     private let passwordTextField = CustomTextField(placeholder: "Password", isSecureTextEntry: true)
     
     private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Log In", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        button.layer.cornerRadius = 5
-        button.setHeight(50)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        let button = AuthButton(title: "Log In")
         return button
     }()
     
