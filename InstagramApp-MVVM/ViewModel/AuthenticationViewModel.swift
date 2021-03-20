@@ -7,11 +7,19 @@
 
 import UIKit
 
+//MARK: - Protocols
+
+protocol FormViewModel {
+    func updateForm()
+}
+
 protocol AuthenticationViewModel {
     var formIsValid: Bool { get }
     var buttonBackgroundColor: UIColor { get }
     var buttonTitleColor: UIColor { get }
 }
+
+//MARK: - Login View Model
 
 struct LoginViewModel: AuthenticationViewModel {
     var email: String?
@@ -30,6 +38,8 @@ struct LoginViewModel: AuthenticationViewModel {
         return formIsValid ? .white : UIColor(white: 1, alpha: 0.67)
     }
 }
+
+//MARK: - Registration View Model
 
 struct RegistrationViewModel: AuthenticationViewModel {
     var email: String?
