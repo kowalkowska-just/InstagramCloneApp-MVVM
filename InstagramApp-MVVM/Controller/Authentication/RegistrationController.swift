@@ -29,9 +29,16 @@ class RegistrationController: UIViewController {
     }()
     
     private let passwordTextField = CustomTextField(placeholder: "Password", isSecureTextEntry: true)
-
-    private let signUpButton: AuthButton = {
-        let button = AuthButton(title: "Sign Up")
+    
+    private let signUpButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(UIColor(white: 1, alpha: 0.67), for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
+        button.layer.cornerRadius = 5
+        button.setHeight(50)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.isEnabled = false
         return button
     }()
     
