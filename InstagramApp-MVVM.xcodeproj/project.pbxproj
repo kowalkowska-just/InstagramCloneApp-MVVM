@@ -25,6 +25,7 @@
 		D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */; };
 		D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */; };
 		D19E9F1726065158001084C7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F1626065158001084C7 /* AuthenticationViewModel.swift */; };
+		D19E9F1C26067681001084C7 /* Extension - String - isValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F1B26067681001084C7 /* Extension - String - isValidEmail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIButton - setAttributedTitle.swift"; sourceTree = "<group>"; };
 		D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - addGradient.swift"; sourceTree = "<group>"; };
 		D19E9F1626065158001084C7 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		D19E9F1B26067681001084C7 /* Extension - String - isValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - String - isValidEmail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				D119EED326003B8C00745E64 /* Extension - UIView - constraints.swift */,
 				D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */,
 				D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */,
+				D19E9F1B26067681001084C7 /* Extension - String - isValidEmail.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				D119EEC226001CC500745E64 /* FeedController.swift in Sources */,
 				D119EECE26001D5400745E64 /* ProfileController.swift in Sources */,
 				D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */,
+				D19E9F1C26067681001084C7 /* Extension - String - isValidEmail.swift in Sources */,
 				D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */,
 				D119EED1260039FA00745E64 /* FeedCell.swift in Sources */,
 			);
