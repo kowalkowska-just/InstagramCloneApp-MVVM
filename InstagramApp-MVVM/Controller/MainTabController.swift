@@ -20,7 +20,6 @@ class MainTabController: UITabBarController {
         setupView()
         configureViewControllers()
         checkIfUserIsLoggedIn()
-      //  logout()
     }
     
     //MARK: - API
@@ -35,14 +34,7 @@ class MainTabController: UITabBarController {
             }
         }
     }
-    
-    func logout() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("DEBUG: Failed to sign out user")
-        }
-    }
+
     //MARK: - Helper Functions
     
     private func setupView() {
