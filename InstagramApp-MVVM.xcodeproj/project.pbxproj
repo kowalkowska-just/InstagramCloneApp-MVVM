@@ -32,6 +32,9 @@
 		D19E9F4E2608D505001084C7 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F4D2608D505001084C7 /* ProfileCell.swift */; };
 		D19E9F512608D525001084C7 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F502608D525001084C7 /* ProfileHeader.swift */; };
 		D19E9F5726093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5626093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift */; };
+		D19E9F5A26094405001084C7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5926094405001084C7 /* UserService.swift */; };
+		D19E9F5D2609443D001084C7 /* Constatnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5C2609443D001084C7 /* Constatnt.swift */; };
+		D19E9F6026094E6A001084C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5F26094E6A001084C7 /* User.swift */; };
 		D4D7AA43911B3D3B73794895 /* Pods_InstagramApp_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2EEA5039CEDAAF493D85 /* Pods_InstagramApp_MVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		D19E9F4D2608D505001084C7 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D19E9F502608D525001084C7 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		D19E9F5626093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UILabel - Creat labels in ProfileHeader.swift"; sourceTree = "<group>"; };
+		D19E9F5926094405001084C7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		D19E9F5C2609443D001084C7 /* Constatnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatnt.swift; sourceTree = "<group>"; };
+		D19E9F5F26094E6A001084C7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 				D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */,
 				D19E9F1B26067681001084C7 /* Extension - String - isValidEmail.swift */,
 				D19E9F5626093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift */,
+				D19E9F5C2609443D001084C7 /* Constatnt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 			children = (
 				D19E9F472606B27C001084C7 /* ImageUploader.swift */,
 				D19E9F4A2606B292001084C7 /* AuthService.swift */,
+				D19E9F5926094405001084C7 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 		D119EEB825FFF56900745E64 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D19E9F5F26094E6A001084C7 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,10 +346,12 @@
 				D19E9F5726093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift in Sources */,
 				D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */,
 				D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */,
+				D19E9F6026094E6A001084C7 /* User.swift in Sources */,
 				D19E9F1726065158001084C7 /* AuthenticationViewModel.swift in Sources */,
 				D119EED726016EB400745E64 /* LoginController.swift in Sources */,
 				D119EE9E25FFF0C900745E64 /* AppDelegate.swift in Sources */,
 				D19E9F482606B27C001084C7 /* ImageUploader.swift in Sources */,
+				D19E9F5A26094405001084C7 /* UserService.swift in Sources */,
 				D19E9F4B2606B292001084C7 /* AuthService.swift in Sources */,
 				D119EEC526001CEF00745E64 /* SearchController.swift in Sources */,
 				D119EEBA25FFF76100745E64 /* MainTabController.swift in Sources */,
@@ -349,6 +360,7 @@
 				D119EEA025FFF0C900745E64 /* SceneDelegate.swift in Sources */,
 				D119EED426003B8C00745E64 /* Extension - UIView - constraints.swift in Sources */,
 				D119EEC826001D1800745E64 /* ImageSelectorController.swift in Sources */,
+				D19E9F5D2609443D001084C7 /* Constatnt.swift in Sources */,
 				D19E9F512608D525001084C7 /* ProfileHeader.swift in Sources */,
 				D119EEC226001CC500745E64 /* FeedController.swift in Sources */,
 				D119EECE26001D5400745E64 /* ProfileController.swift in Sources */,

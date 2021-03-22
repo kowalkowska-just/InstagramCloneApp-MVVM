@@ -14,12 +14,27 @@ class ProfileController: UICollectionViewController {
 
     //MARK: - Properties
     
+    private var user: User? {
+        didSet {
+            navigationItem.title = user?.username
+        }
+    }
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPurple
-        configureCollectionView()    }
+        configureCollectionView()
+        fetchUser()
+    }
+    
+    //MARK: - API
+    func fetchUser() {
+        UserService.fetchUser { (user) in
+            self.user = user
+        }
+    }
     
     //MARK: - Helper Functions
     
