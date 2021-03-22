@@ -17,6 +17,7 @@ class ProfileController: UICollectionViewController {
     private var user: User? {
         didSet {
             navigationItem.title = user?.username
+            collectionView.reloadData()
         }
     }
     
@@ -61,7 +62,9 @@ extension ProfileController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
-        
+        if let user = user {
+            header.viewModel = ProfileHeaderViewModel(user: user)
+        }
         return header
     }
 }

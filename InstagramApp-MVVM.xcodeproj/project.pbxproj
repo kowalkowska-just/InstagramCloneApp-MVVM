@@ -35,6 +35,7 @@
 		D19E9F5A26094405001084C7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5926094405001084C7 /* UserService.swift */; };
 		D19E9F5D2609443D001084C7 /* Constatnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5C2609443D001084C7 /* Constatnt.swift */; };
 		D19E9F6026094E6A001084C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5F26094E6A001084C7 /* User.swift */; };
+		D19E9F63260954B4001084C7 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F62260954B4001084C7 /* ProfileHeaderViewModel.swift */; };
 		D4D7AA43911B3D3B73794895 /* Pods_InstagramApp_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC2EEA5039CEDAAF493D85 /* Pods_InstagramApp_MVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		D19E9F5926094405001084C7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D19E9F5C2609443D001084C7 /* Constatnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatnt.swift; sourceTree = "<group>"; };
 		D19E9F5F26094E6A001084C7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D19E9F62260954B4001084C7 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				D19E9F1626065158001084C7 /* AuthenticationViewModel.swift */,
+				D19E9F62260954B4001084C7 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				D119EEC526001CEF00745E64 /* SearchController.swift in Sources */,
 				D119EEBA25FFF76100745E64 /* MainTabController.swift in Sources */,
 				D19E9F4E2608D505001084C7 /* ProfileCell.swift in Sources */,
+				D19E9F63260954B4001084C7 /* ProfileHeaderViewModel.swift in Sources */,
 				D119EECB26001D3A00745E64 /* NotificationController.swift in Sources */,
 				D119EEA025FFF0C900745E64 /* SceneDelegate.swift in Sources */,
 				D119EED426003B8C00745E64 /* Extension - UIView - constraints.swift in Sources */,
