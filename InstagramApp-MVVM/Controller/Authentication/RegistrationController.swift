@@ -11,6 +11,8 @@ class RegistrationController: UIViewController {
 
     //MARK: - Properties
     
+    weak var delegate: AuthenticationDelegate?
+    
     private var viewModel = RegistrationViewModel()
     private var profileImage: UIImage?
     
@@ -111,7 +113,7 @@ class RegistrationController: UIViewController {
             }
             print("DEBUG: Successfully registered user with firestore")
             
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationDidComplete()
         }
     }
     
