@@ -21,6 +21,7 @@
 		D119EED426003B8C00745E64 /* Extension - UIView - constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED326003B8C00745E64 /* Extension - UIView - constraints.swift */; };
 		D119EED726016EB400745E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED626016EB400745E64 /* LoginController.swift */; };
 		D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED926016EC900745E64 /* RegistrationController.swift */; };
+		D13A8CB4262224A300D40FE7 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CB3262224A300D40FE7 /* UserCellViewModel.swift */; };
 		D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F082602B9BB001084C7 /* CustomTextField.swift */; };
 		D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */; };
 		D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */; };
@@ -60,6 +61,7 @@
 		D119EED326003B8C00745E64 /* Extension - UIView - constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - constraints.swift"; sourceTree = "<group>"; };
 		D119EED626016EB400745E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D119EED926016EC900745E64 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		D13A8CB3262224A300D40FE7 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		D19E9F082602B9BB001084C7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIButton - setAttributedTitle.swift"; sourceTree = "<group>"; };
 		D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - addGradient.swift"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				D19E9F1626065158001084C7 /* AuthenticationViewModel.swift */,
 				D19E9F62260954B4001084C7 /* ProfileHeaderViewModel.swift */,
+				D13A8CB3262224A300D40FE7 /* UserCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				D119EED726016EB400745E64 /* LoginController.swift in Sources */,
 				D119EE9E25FFF0C900745E64 /* AppDelegate.swift in Sources */,
 				D19E9F482606B27C001084C7 /* ImageUploader.swift in Sources */,
+				D13A8CB4262224A300D40FE7 /* UserCellViewModel.swift in Sources */,
 				D19E9F5A26094405001084C7 /* UserService.swift in Sources */,
 				D19E9F4B2606B292001084C7 /* AuthService.swift in Sources */,
 				D119EEC526001CEF00745E64 /* SearchController.swift in Sources */,
