@@ -43,7 +43,7 @@ class SearchController: UITableViewController {
     }
 }
 
-//MARK: - UITableViewDataSource and UITableViewDelegate
+//MARK: - UITableViewDataSource
 
 extension SearchController {
     
@@ -55,5 +55,15 @@ extension SearchController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
         cell.viewModel = UserCellViewModel(user: users[indexPath.row])
         return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+
+extension SearchController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("DEBUG: User is \(users[indexPath.row].username)")
+        let controller = ProfileController(user: users[indexPath.row])
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
