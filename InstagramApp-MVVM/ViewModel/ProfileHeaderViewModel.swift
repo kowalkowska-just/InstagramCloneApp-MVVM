@@ -21,6 +21,14 @@ struct ProfileHeaderViewModel {
         return URL(string: user.profileImageUrl)
     }
     
+    var followButtonText: String {
+        if user.isCurrentUser {
+            return "Edit Profile"
+        } else {
+            return user.isFollowed ? "Following" : "Follow"
+        }
+    }
+    
     //MARK: - Initializer
     
     init(user: User) {
