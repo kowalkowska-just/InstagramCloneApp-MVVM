@@ -8,9 +8,15 @@
 import UIKit
 import SDWebImage
 
+protocol ProfileHeaderDelegate: class {
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User)
+}
+
 class ProfileHeader: UICollectionReusableView {
     
     //MARK: - Properties
+    
+    weak var delegate: ProfileHeaderDelegate?
     
     var viewModel: ProfileHeaderViewModel? {
         didSet {
@@ -95,7 +101,8 @@ class ProfileHeader: UICollectionReusableView {
     //MARK: - Selectors
     
     @objc private func handleEditProfileFollowtapped() {
-        print("DEBUG: Handle edit profile tapped..")
+        guard let viewModel = viewModel else { return }
+        delegate?.header(self, didTapActionButtonFor: viewModel.user)
     }
     
     //MARK: - Helper Functions
