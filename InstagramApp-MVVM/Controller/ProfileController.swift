@@ -31,10 +31,17 @@ class ProfileController: UICollectionViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemPurple
         configureCollectionView()
+        checkIfUserIsFollowed()
     }
     
     //MARK: - API
-
+    
+    func checkIfUserIsFollowed() {
+        UserService.checkIfUserIsFollowed(uid: user.uid) { (isFollowed) in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
+        }
+    }
     
     //MARK: - Helper Functions
     
