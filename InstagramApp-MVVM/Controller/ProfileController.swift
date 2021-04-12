@@ -32,20 +32,30 @@ class ProfileController: UICollectionViewController {
         view.backgroundColor = .systemPurple
         configureCollectionView()
         checkIfUserIsFollowed()
+        fetchUserStats()
     }
     
     //MARK: - API
     
-    func checkIfUserIsFollowed() {
+    private func checkIfUserIsFollowed() {
         UserService.checkIfUserIsFollowed(uid: user.uid) { (isFollowed) in
             self.user.isFollowed = isFollowed
             self.collectionView.reloadData()
         }
     }
     
+    private func fetchUserStats() {
+        UserService.fetchUserState(uid: user.uid) { (stats) in
+            self.user.stats = stats
+            self.collectionView.reloadData()
+            
+            print("DEBUG: Stats \(stats)")
+        }
+    }
+    
     //MARK: - Helper Functions
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         navigationItem.title = user.username
         collectionView.backgroundColor = .white
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)

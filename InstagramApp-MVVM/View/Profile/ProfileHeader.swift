@@ -52,17 +52,23 @@ class ProfileHeader: UICollectionReusableView {
     }()
     
     private lazy var postsLabel: UILabel = {
-        let label = UILabel().createLabel(withValue: 9, withText: "posts")
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var followersLabel: UILabel = {
-        let label = UILabel().createLabel(withValue: 2, withText: "followers")
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var followingLabel: UILabel = {
-        let label = UILabel().createLabel(withValue: 1, withText: "following")
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
@@ -194,5 +200,9 @@ class ProfileHeader: UICollectionReusableView {
         editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
         editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColor
+        
+        followersLabel.attributedText = viewModel.numberOfFollowers
+        followingLabel.attributedText = viewModel.numberOfFollowing
+        postsLabel.attributedText = viewModel.numberOfPosts
     }
 }

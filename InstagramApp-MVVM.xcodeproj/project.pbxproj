@@ -32,7 +32,6 @@
 		D19E9F4B2606B292001084C7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F4A2606B292001084C7 /* AuthService.swift */; };
 		D19E9F4E2608D505001084C7 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F4D2608D505001084C7 /* ProfileCell.swift */; };
 		D19E9F512608D525001084C7 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F502608D525001084C7 /* ProfileHeader.swift */; };
-		D19E9F5726093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5626093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift */; };
 		D19E9F5A26094405001084C7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5926094405001084C7 /* UserService.swift */; };
 		D19E9F5D2609443D001084C7 /* Constatnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5C2609443D001084C7 /* Constatnt.swift */; };
 		D19E9F6026094E6A001084C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F5F26094E6A001084C7 /* User.swift */; };
@@ -72,7 +71,6 @@
 		D19E9F4A2606B292001084C7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D19E9F4D2608D505001084C7 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D19E9F502608D525001084C7 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
-		D19E9F5626093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UILabel - Creat labels in ProfileHeader.swift"; sourceTree = "<group>"; };
 		D19E9F5926094405001084C7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D19E9F5C2609443D001084C7 /* Constatnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatnt.swift; sourceTree = "<group>"; };
 		D19E9F5F26094E6A001084C7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */,
 				D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */,
 				D19E9F1B26067681001084C7 /* Extension - String - isValidEmail.swift */,
-				D19E9F5626093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift */,
 				D19E9F5C2609443D001084C7 /* Constatnt.swift */,
 			);
 			path = Utils;
@@ -352,7 +349,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D19E9F5726093B97001084C7 /* Extension - UILabel - Creat labels in ProfileHeader.swift in Sources */,
 				D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */,
 				D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */,
 				D19E9F6026094E6A001084C7 /* User.swift in Sources */,
