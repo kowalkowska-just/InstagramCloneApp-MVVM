@@ -26,6 +26,7 @@
 		D13A8CBB2628E42600D40FE7 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CBA2628E42600D40FE7 /* InputTextView.swift */; };
 		D13A8CBE2629D67400D40FE7 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CBD2629D67400D40FE7 /* PostService.swift */; };
 		D13A8CC1262E274300D40FE7 /* Extension - UIViewController - JGProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CC0262E274300D40FE7 /* Extension - UIViewController - JGProgressHUD.swift */; };
+		D13A8CC42630496200D40FE7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CC32630496200D40FE7 /* Post.swift */; };
 		D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F082602B9BB001084C7 /* CustomTextField.swift */; };
 		D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */; };
 		D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */; };
@@ -69,6 +70,7 @@
 		D13A8CBA2628E42600D40FE7 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		D13A8CBD2629D67400D40FE7 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D13A8CC0262E274300D40FE7 /* Extension - UIViewController - JGProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIViewController - JGProgressHUD.swift"; sourceTree = "<group>"; };
+		D13A8CC32630496200D40FE7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D19E9F082602B9BB001084C7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIButton - setAttributedTitle.swift"; sourceTree = "<group>"; };
 		D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - addGradient.swift"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D19E9F5F26094E6A001084C7 /* User.swift */,
+				D13A8CC32630496200D40FE7 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				D19E9F482606B27C001084C7 /* ImageUploader.swift in Sources */,
 				D13A8CB4262224A300D40FE7 /* UserCellViewModel.swift in Sources */,
 				D19E9F5A26094405001084C7 /* UserService.swift in Sources */,
+				D13A8CC42630496200D40FE7 /* Post.swift in Sources */,
 				D13A8CC1262E274300D40FE7 /* Extension - UIViewController - JGProgressHUD.swift in Sources */,
 				D19E9F4B2606B292001084C7 /* AuthService.swift in Sources */,
 				D119EEC526001CEF00745E64 /* SearchController.swift in Sources */,
