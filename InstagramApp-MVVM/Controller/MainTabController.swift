@@ -91,8 +91,11 @@ class MainTabController: UITabBarController {
                 print("DEBUG: Selected image is \(selectedImage)")
                 
                 let controller = UploadPostController()
+                
                 controller.delegate = self
                 controller.selectedImage = selectedImage
+                controller.currentUser = self.user
+                
                 let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: false, completion: nil)
