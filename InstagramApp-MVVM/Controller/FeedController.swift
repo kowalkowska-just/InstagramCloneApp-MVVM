@@ -39,7 +39,7 @@ class FeedController: UICollectionViewController {
         }
     }
     
-    @objc private func handleRefresh() {
+    @objc func handleRefresh() {
         posts.removeAll()
         fetchPosts()
     }
