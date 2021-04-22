@@ -46,7 +46,7 @@ struct ProfileHeaderViewModel {
     }
     
     var numberOfPosts: NSAttributedString {
-        return attributedStatText(value: 5, text: "posts")
+        return attributedStatText(value: user.stats.posts, text: "posts")
     }
     
     //MARK: - Initializer
