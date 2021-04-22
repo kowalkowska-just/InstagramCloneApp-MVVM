@@ -39,11 +39,20 @@ class FeedController: UICollectionViewController {
         }
     }
     
+    @objc private func handleRefresh() {
+        posts.removeAll()
+        fetchPosts()
+    }
+    
     //MARK: - API
     
     private func fetchPosts() {
         PostService.fetchPosts { (posts) in
             self.posts = posts
+            
+            print("DEBUG: Did fetch posts..")
+            
+            self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
         }
     }
@@ -57,6 +66,10 @@ class FeedController: UICollectionViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.title = "Feed"
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
 }
 
