@@ -11,9 +11,24 @@ class CommentCell: UICollectionViewCell {
     
     //MARK: - Properties
     
-//    private let profileImage: UIImageView = {
-//
-//    }()
+    private let profileImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        iv.backgroundColor = .lightGray
+        iv.image = #imageLiteral(resourceName: "venom-7")
+        return iv
+    }()
+    
+    private let commentLabel: UILabel = {
+        let label = UILabel()
+        
+        let attributedString = NSMutableAttributedString(string: "joker ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
+        attributedString.append(NSMutableAttributedString(string: "My comment example.. :D", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
+        
+        label.attributedText = attributedString
+        return label
+    }()
     
     //MARK: - Lifecycle
     
@@ -30,6 +45,16 @@ class CommentCell: UICollectionViewCell {
     //MARK: - Helper Functions
     
     private func configureUI() {
-        backgroundColor = .red
+        backgroundColor = .white
+        
+        addSubview(profileImageView)
+        profileImageView.setDimensions(height: 40, width: 40)
+        profileImageView.layer.cornerRadius = 40 / 2
+        profileImageView.centerY(inView: self)
+        profileImageView.anchor(left: leftAnchor, paddingLeft: 8)
+        
+        addSubview(commentLabel)
+        commentLabel.centerY(inView: profileImageView)
+        commentLabel.anchor(left: profileImageView.rightAnchor, paddingLeft: 8)
     }
 }
