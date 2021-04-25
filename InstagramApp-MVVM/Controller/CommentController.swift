@@ -13,6 +13,12 @@ class CommentController: UICollectionViewController {
     
     //MARK: - Properties
     
+    private lazy var commentInputView: CommentInputAccesoryView = {
+        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+        let cv = CommentInputAccesoryView(frame: frame)
+        return cv
+    }()
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -21,6 +27,25 @@ class CommentController: UICollectionViewController {
         configureCollectionView()
     }
     
+    override var inputAccessoryView: UIView? {
+        get {
+            return commentInputView
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     //MARK: - Helper Functions
     
     private func configureCollectionView() {
