@@ -11,6 +11,10 @@ class CommentCell: UICollectionViewCell {
     
     //MARK: - Properties
     
+    var viewModel: CommentViewModel? {
+        didSet { configure() }
+    }
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -20,15 +24,7 @@ class CommentCell: UICollectionViewCell {
         return iv
     }()
     
-    private let commentLabel: UILabel = {
-        let label = UILabel()
-        
-        let attributedString = NSMutableAttributedString(string: "joker ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedString.append(NSMutableAttributedString(string: "My comment example.. :D", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
-        
-        label.attributedText = attributedString
-        return label
-    }()
+    private let commentLabel = UILabel()
     
     //MARK: - Lifecycle
     
@@ -56,5 +52,12 @@ class CommentCell: UICollectionViewCell {
         addSubview(commentLabel)
         commentLabel.centerY(inView: profileImageView)
         commentLabel.anchor(left: profileImageView.rightAnchor, paddingLeft: 8)
+    }
+    
+    private func configure() {
+        guard let viewModel = viewModel else { return }
+        
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        commentLabel.attributedText = viewModel.commentLabelText()
     }
 }
