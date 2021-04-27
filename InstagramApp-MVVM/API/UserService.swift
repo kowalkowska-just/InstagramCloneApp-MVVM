@@ -11,10 +11,8 @@ typealias FirestoreCompletion = (Error?) -> Void
 
 struct UserService {
     
-    static func fetchUser(complition: @escaping(User) -> Void) {
-        
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        
+    static func fetchUser(withUid uid: String, complition: @escaping(User) -> Void) {
+                
         COLLECTION_USERS.document(uid).getDocument { (snapshot, error) in
             guard let dictionary = snapshot?.data() else { return }
             let user = User(dictionary: dictionary)
