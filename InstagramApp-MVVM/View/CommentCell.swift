@@ -49,9 +49,12 @@ class CommentCell: UICollectionViewCell {
         profileImageView.centerY(inView: self)
         profileImageView.anchor(left: leftAnchor, paddingLeft: 8)
         
+        commentLabel.numberOfLines = 0
         addSubview(commentLabel)
         commentLabel.centerY(inView: profileImageView)
-        commentLabel.anchor(left: profileImageView.rightAnchor, paddingLeft: 8)
+        commentLabel.anchor(left: profileImageView.rightAnchor, right: rightAnchor,
+                            paddingLeft: 8, paddingRight: 8)
+        
     }
     
     private func configure() {
