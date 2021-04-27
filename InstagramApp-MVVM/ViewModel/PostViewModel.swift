@@ -11,7 +11,7 @@ struct PostViewModel {
     
     //MARK: - Properties
     
-    let post: Post
+    var post: Post
     
     var imageUrl: URL? {
         return URL(string: post.imageUrl)
