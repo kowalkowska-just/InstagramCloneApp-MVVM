@@ -132,11 +132,15 @@ extension FeedController: FeedCellDelegate {
         cell.viewModel?.post.didLike.toggle()
         
         if post.didLike {
-            print("DEBUG: Unlike post here..")
+            PostService.unlikePost(post: post) { (error) in
+                if let error = error {
+                    print("DEBUG: Failed to unlike a post..")
+                }
+            }
         } else {
             PostService.likePost(post: post) { (error) in
                 if let error = error {
-                    print("DEBUG: Failed")
+                    print("DEBUG: Failed to like a post..")
                 }
             }
         }
