@@ -5,7 +5,7 @@
 //  Created by Justyna Kowalkowska on 21/04/2021.
 //
 
-import Foundation
+import UIKit
 
 struct PostViewModel {
     
@@ -38,6 +38,22 @@ struct PostViewModel {
             return "\(post.likes) likes"
         } else {
             return "\(post.likes) like"
+        }
+    }
+    
+    var likeImage: UIImage {
+        if post.didLike {
+            return #imageLiteral(resourceName: "like_selected")
+        } else {
+            return #imageLiteral(resourceName: "like_unselected")
+        }
+    }
+    
+    var colorLikeImage: UIColor {
+        if post.didLike {
+            return .red
+        } else {
+            return .black
         }
     }
     
