@@ -14,7 +14,11 @@ class FeedController: UICollectionViewController {
 
     //MARK: - Properties
     
-    private var posts = [Post]()
+    private var posts = [Post]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     var post: Post?
     
@@ -53,11 +57,20 @@ class FeedController: UICollectionViewController {
         
         PostService.fetchPosts { (posts) in
             self.posts = posts
-            
-            print("DEBUG: Did fetch posts..")
-            
             self.collectionView.refreshControl?.endRefreshing()
-            self.collectionView.reloadData()
+            self.checkIfUserLikedPost()
+        }
+    }
+    
+    private func checkIfUserLikedPost() {
+        
+        self.posts.forEach { post in
+            PostService.checkIfUserLikedPost(post: post) { (didLike) in
+                print("DEBUG: Post is \(post.caption) and user liked is \(didLike)")
+                if let index = self.posts.firstIndex(where: { $0.postId == post.postId }) {
+                    self.posts[index].didLike = didLike
+                }
+            }
         }
     }
     
@@ -127,6 +140,7 @@ extension FeedController: FeedCellDelegate {
         let controller = CommentController(post: post)
         navigationController?.pushViewController(controller, animated: true)
     }
+    
     func cell(_ cell: FeedCell, didLike post: Post) {
         
         cell.viewModel?.post.didLike.toggle()
@@ -134,14 +148,20 @@ extension FeedController: FeedCellDelegate {
         if post.didLike {
             PostService.unlikePost(post: post) { (error) in
                 if let error = error {
-                    print("DEBUG: Failed to unlike a post..")
+                    print("DEBUG: Failed to unlike a post with error: \(error)")
                 }
+                cell.likeButton.setImage(#imageLiteral(resourceName: "like_unselected"), for: .normal)
+                cell.likeButton.tintColor = .black
+                cell.viewModel?.post.likes = post.likes - 1
             }
         } else {
             PostService.likePost(post: post) { (error) in
                 if let error = error {
-                    print("DEBUG: Failed to like a post..")
+                    print("DEBUG: Failed to like a post with error: \(error)")
                 }
+                cell.likeButton.setImage(#imageLiteral(resourceName: "like_selected"), for: .normal)
+                cell.likeButton.tintColor = .red
+                cell.viewModel?.post.likes = post.likes + 1
             }
         }
     }

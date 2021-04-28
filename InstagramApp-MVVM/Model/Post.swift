@@ -9,7 +9,7 @@ import Firebase
 
 struct Post {
     let caption: String
-    let likes: Int
+    var likes: Int
     let imageUrl: String
     let ownerUid: String
     let timestamp: Timestamp

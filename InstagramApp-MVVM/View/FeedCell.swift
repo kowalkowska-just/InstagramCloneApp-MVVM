@@ -51,7 +51,7 @@ class FeedCell: UICollectionViewCell {
         return iv
     }()
     
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
 //        button.tintColor = .black
         button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
@@ -133,8 +133,8 @@ class FeedCell: UICollectionViewCell {
         profileImageView.sd_setImage(with: viewModel.userProfileImageUrl)
         usernameButton.setTitle(viewModel.username, for: .normal)
         
-        likeButton.setImage(viewModel.likeImage, for: .normal)
-        likeButton.tintColor = viewModel.colorLikeImage
+        likeButton.setImage(viewModel.likeButtonImage, for: .normal)
+        likeButton.tintColor = viewModel.likeButtonTintColor
     }
     
     private func setupView() {
