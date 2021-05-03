@@ -93,12 +93,23 @@ extension CommentController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseIdentifierHeaderView, for: indexPath) as! HeaderCommentView
+        header.viewModel = HeaderCommentViewModel(post: post)
         
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 200)
+        
+        let viewModel = HeaderCommentViewModel(post: post)
+        
+        let height = viewModel.size(forWidth: view.frame.width).height + 31
+        let minHeight = CGFloat(75)
+        
+        if height < 75 {
+            return CGSize(width: view.frame.size.width, height: minHeight)
+        } else {
+            return CGSize(width: view.frame.size.width, height: height)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
