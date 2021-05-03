@@ -8,6 +8,8 @@
 import UIKit
 
 private let reuseIdentifier = "CommentCell"
+private let reuseIdentifierHeaderView = "HeaderView"
+
 
 class CommentController: UICollectionViewController {
     
@@ -78,6 +80,8 @@ class CommentController: UICollectionViewController {
         collectionView.backgroundColor = .white
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
+        collectionView.register(HeaderCommentView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseIdentifierHeaderView)
+        
         collectionView.alwaysBounceVertical = true
         collectionView.keyboardDismissMode = .interactive
     }
@@ -86,6 +90,16 @@ class CommentController: UICollectionViewController {
 //MARK: - UICollectionViewDataSource
 
 extension CommentController {
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseIdentifierHeaderView, for: indexPath) as! HeaderCommentView
+        
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: 200)
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return comments.count

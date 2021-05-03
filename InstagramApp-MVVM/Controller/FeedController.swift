@@ -100,6 +100,7 @@ class FeedController: UICollectionViewController {
 //MARK: - UICollectionVieDataSource
 
 extension FeedController {
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return post == nil ? posts.count : 1
     }
