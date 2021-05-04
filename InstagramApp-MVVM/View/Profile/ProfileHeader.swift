@@ -41,13 +41,13 @@ class ProfileHeader: UICollectionReusableView {
     
     private lazy var editProfileFollowButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Edit Profile", for: .normal)
+        button.setTitle("Loading", for: .normal)
         button.layer.cornerRadius = 3
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(handleEditProfileFollowtapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleEditProfileFollowTapped), for: .touchUpInside)
         return button
     }()
     
@@ -106,7 +106,7 @@ class ProfileHeader: UICollectionReusableView {
     
     //MARK: - Selectors
     
-    @objc private func handleEditProfileFollowtapped() {
+    @objc private func handleEditProfileFollowTapped() {
         guard let viewModel = viewModel else { return }
         delegate?.header(self, didTapActionButtonFor: viewModel.user)
     }

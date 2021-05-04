@@ -36,6 +36,7 @@
 		D13A8CDE2637328D00D40FE7 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CDD2637328D00D40FE7 /* CommentViewModel.swift */; };
 		D1999C48263B69330019301C /* HeaderCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C47263B69330019301C /* HeaderCommentView.swift */; };
 		D1999C4B26408D6A0019301C /* HeaderCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C4A26408D6A0019301C /* HeaderCommentViewModel.swift */; };
+		D1999C4E2640AD870019301C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C4D2640AD870019301C /* NotificationCell.swift */; };
 		D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F082602B9BB001084C7 /* CustomTextField.swift */; };
 		D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */; };
 		D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */; };
@@ -89,6 +90,7 @@
 		D13A8CDD2637328D00D40FE7 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		D1999C47263B69330019301C /* HeaderCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCommentView.swift; sourceTree = "<group>"; };
 		D1999C4A26408D6A0019301C /* HeaderCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCommentViewModel.swift; sourceTree = "<group>"; };
+		D1999C4D2640AD870019301C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		D19E9F082602B9BB001084C7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIButton - setAttributedTitle.swift"; sourceTree = "<group>"; };
 		D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - addGradient.swift"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				D13A8CCC263227B600D40FE7 /* CommentCell.swift */,
 				D13A8CCF2636083100D40FE7 /* CommentInputAccesoryView.swift */,
 				D1999C47263B69330019301C /* HeaderCommentView.swift */,
+				D1999C4D2640AD870019301C /* NotificationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				D119EEC226001CC500745E64 /* FeedController.swift in Sources */,
 				D13A8CBB2628E42600D40FE7 /* InputTextView.swift in Sources */,
 				D119EECE26001D5400745E64 /* ProfileController.swift in Sources */,
+				D1999C4E2640AD870019301C /* NotificationCell.swift in Sources */,
 				D13A8CBE2629D67400D40FE7 /* PostService.swift in Sources */,
 				D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */,
 				D13A8CD02636083100D40FE7 /* CommentInputAccesoryView.swift in Sources */,
