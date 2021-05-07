@@ -14,16 +14,21 @@ struct NotificationService {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         guard uid != currentUid else { return }
         
+        let docRef = COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").document()
+        
         var data: [String: Any] = ["timestamp": Timestamp(date: Date()),
                                    "uid": currentUid,
-                                   "type": type.rawValue]
+                                   "type": type.rawValue,
+                                   "id": docRef.documentID]
         
         if let post = post {
             data["postId"] = post.postId
             data["postImageUrl"] = post.imageUrl
         }
         
-        COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").addDocument(data: data)
+        
+        
+        docRef.setData(data)
         
     }
     
