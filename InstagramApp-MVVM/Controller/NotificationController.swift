@@ -13,11 +13,27 @@ class NotificationController: UITableViewController {
 
     //MARK: - Properties
     
+    private var notifications = [Notification]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+    }
+    
+    //MARK: - API
+    
+    private func fetchNotifications() {
+        NotificationService.fetchNotification { (notifications) in
+            self.naotifications = notifications
+            print(DEBUG: "Notifications: \(notifications")
+        }
+        
     }
     
     //MARK: - Helper Functions
