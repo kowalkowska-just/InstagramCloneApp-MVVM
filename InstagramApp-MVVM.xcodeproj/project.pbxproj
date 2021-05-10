@@ -39,6 +39,7 @@
 		D1999C4E2640AD870019301C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C4D2640AD870019301C /* NotificationCell.swift */; };
 		D1999C51264345340019301C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C50264345340019301C /* Notification.swift */; };
 		D1999C54264349270019301C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C53264349270019301C /* NotificationService.swift */; };
+		D1999C572649B2770019301C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C562649B2770019301C /* NotificationViewModel.swift */; };
 		D19E9F092602B9BB001084C7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F082602B9BB001084C7 /* CustomTextField.swift */; };
 		D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */; };
 		D19E9F102602DB4A001084C7 /* Extension - UIView - addGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */; };
@@ -95,6 +96,7 @@
 		D1999C4D2640AD870019301C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		D1999C50264345340019301C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D1999C53264349270019301C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		D1999C562649B2770019301C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		D19E9F082602B9BB001084C7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D19E9F0B2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIButton - setAttributedTitle.swift"; sourceTree = "<group>"; };
 		D19E9F0F2602DB4A001084C7 /* Extension - UIView - addGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - addGradient.swift"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				D13A8CC6263053EC00D40FE7 /* PostViewModel.swift */,
 				D13A8CDD2637328D00D40FE7 /* CommentViewModel.swift */,
 				D1999C4A26408D6A0019301C /* HeaderCommentViewModel.swift */,
+				D1999C562649B2770019301C /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				D13A8CD02636083100D40FE7 /* CommentInputAccesoryView.swift in Sources */,
 				D19E9F1C26067681001084C7 /* Extension - String - isValidEmail.swift in Sources */,
 				D1999C51264345340019301C /* Notification.swift in Sources */,
+				D1999C572649B2770019301C /* NotificationViewModel.swift in Sources */,
 				D13A8CDA26371F7A00D40FE7 /* Comment.swift in Sources */,
 				D19E9F0C2602D828001084C7 /* Extension - UIButton - setAttributedTitle.swift in Sources */,
 				D119EED1260039FA00745E64 /* FeedCell.swift in Sources */,

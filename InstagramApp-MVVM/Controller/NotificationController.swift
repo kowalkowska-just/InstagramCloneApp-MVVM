@@ -30,8 +30,8 @@ class NotificationController: UITableViewController {
     
     private func fetchNotifications() {
         NotificationService.fetchNotification { (notifications) in
-            self.naotifications = notifications
-            print(DEBUG: "Notifications: \(notifications")
+            self.notifications = notifications
+            print("DEBUG: Notifications: \(notifications)")
         }
         
     }
@@ -52,7 +52,7 @@ class NotificationController: UITableViewController {
 
 extension NotificationController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return notifications.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

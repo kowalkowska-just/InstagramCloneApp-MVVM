@@ -11,6 +11,12 @@ class NotificationCell: UITableViewCell {
     
     //MARK: - Properties
     
+    private var viewModel: NotificationViewModel {
+        didSet {
+            configure()
+        }
+    }
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -94,5 +100,12 @@ class NotificationCell: UITableViewCell {
         postImageView.anchor(right: rightAnchor, paddingRight: 13, width: 40, height: 40)
         
         followButton.isHidden = true
+    }
+    
+    private func configure() {
+        guard let viewModel = viewModel else { return }
+        
+        profileImageView.sd_setImage(with: viewModel.profileImageUel)
+        
     }
 }
