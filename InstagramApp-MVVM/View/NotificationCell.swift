@@ -11,7 +11,7 @@ class NotificationCell: UITableViewCell {
     
     //MARK: - Properties
     
-    private var viewModel: NotificationViewModel {
+    var viewModel: NotificationViewModel? {
         didSet {
             configure()
         }
@@ -30,6 +30,7 @@ class NotificationCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.text = "Info label"
+        label.numberOfLines = 0 
         return label
     }()
     
@@ -106,6 +107,9 @@ class NotificationCell: UITableViewCell {
         guard let viewModel = viewModel else { return }
         
         profileImageView.sd_setImage(with: viewModel.profileImageUel)
+        postImageView.sd_setImage(with: viewModel.postImageUrl)
+        
+        infoLabel.attributedText = viewModel.notificationMessage
         
     }
 }
