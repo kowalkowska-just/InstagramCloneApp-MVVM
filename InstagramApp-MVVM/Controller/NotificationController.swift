@@ -24,7 +24,7 @@ class NotificationController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        fetchNotifications() 
+        fetchNotifications()
     }
     
     //MARK: - API
@@ -32,9 +32,19 @@ class NotificationController: UITableViewController {
     private func fetchNotifications() {
         NotificationService.fetchNotification { (notifications) in
             self.notifications = notifications
-            print("DEBUG: Notifications: \(notifications)")
+            self.checkIfUserIsFollowed()
         }
-        
+    }
+    
+    private func checkIfUserIsFollowed() {
+        notifications.forEach { notification in
+            guard notification.type == .follow else { return }
+            UserService.checkIfUserIsFollowed(uid: notification.uid) { isFollowed in
+                if let index = self.notifications.firstIndex(where: { $0.id == notification.id }) {
+                    self.notifications[index].userIsFollowed = isFollowed
+                }
+            }
+        }
     }
     
     //MARK: - Helper Functions
@@ -59,7 +69,7 @@ extension NotificationController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NotificationCell
         cell.viewModel = NotificationViewModel(notification: notifications[indexPath.row])
-        print(notifications[indexPath.row])
+        cell.delegate = self
         return cell
     }
 }
@@ -67,5 +77,25 @@ extension NotificationController {
 //MARK: - UITableViewDelegate
 
 extension NotificationController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // <#code#>
+    }
+}
+
+//MARK: - NotificationCellDelegate
+
+extension NotificationController: NotificationCellDelegate {
+    func cell(_ cell: NotificationCell, wantsToFallow uid: String) {
+        print("DEBUG: Follow user here...")
+    }
+    
+    func cell(_ cell: NotificationCell, wantsToUnFollow uid: String) {
+        print("DEBUG: Unfollow user here...")
+    }
+    
+    func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {
+        print("DEBUG: Show post here...")
+    }
+    
     
 }
