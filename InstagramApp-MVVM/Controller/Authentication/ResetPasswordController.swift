@@ -11,9 +11,12 @@ class ResetPasswordController: UIViewController {
     
     //MARK: - Properties
     
+    private var viewModel = ResetPasswordViewModel()
+    
     private let emailTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Email", isSecureTextEntry: false)
         tf.keyboardType = .emailAddress
+        tf.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         return tf
     }()
     
@@ -53,6 +56,13 @@ class ResetPasswordController: UIViewController {
     
     //MARK: - Selectors
     
+    @objc private func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }
+        updateForm()
+    }
+    
     @objc private func handleResetPassword() {
         
     }
@@ -84,5 +94,13 @@ class ResetPasswordController: UIViewController {
         stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor,
                      right: view.rightAnchor,
                      paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+    }
+}
+
+extension ResetPasswordController: FormViewModel {
+    func updateForm() {
+        resetPasswordButton.backgroundColor = viewModel.buttonBackgroundColor
+        resetPasswordButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        resetPasswordButton.isEnabled = viewModel.formIsValid
     }
 }
