@@ -32,10 +32,6 @@ class NotificationCell: UITableViewCell {
         iv.backgroundColor = .lightGray
         iv.image = #imageLiteral(resourceName: "venom-7")
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
-        iv.isUserInteractionEnabled = true
-        iv.addGestureRecognizer(tap)
-        
         return iv
     }()
     
@@ -84,12 +80,13 @@ class NotificationCell: UITableViewCell {
     
     //MARK: - Selectors
     
-    @objc private func handleProfileImageTapped() {
-        print("DEBUG: Profile Image tapped..")
-    }
-    
     @objc private func handleFollowTapped() {
-        //delegate?.cell(<#T##cell: NotificationCell##NotificationCell#>, wantsToFallow: <#T##String#>)
+        guard let viewModel = viewModel else { return }
+        if viewModel.notification.userIsFollowed {
+            delegate?.cell(self, wantsToUnFollow: viewModel.notification.uid)
+        } else {
+            delegate?.cell(self, wantsToFallow: viewModel.notification.uid)
+        }
     }
     
     @objc private func handlePostTapped() {
@@ -107,15 +104,15 @@ class NotificationCell: UITableViewCell {
         profileImageView.layer.cornerRadius = 48 / 2
         profileImageView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
         
-        addSubview(followButton)
+        contentView.addSubview(followButton)
         followButton.centerY(inView: self)
         followButton.anchor(right: rightAnchor, paddingRight: 13, width: 88, height: 32)
         
-        addSubview(postImageView)
+        contentView.addSubview(postImageView)
         postImageView.centerY(inView: self)
         postImageView.anchor(right: rightAnchor, paddingRight: 13, width: 40, height: 40)
         
-        addSubview(infoLabel)
+        contentView.addSubview(infoLabel)
         infoLabel.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         infoLabel.anchor(right: followButton.leftAnchor, paddingRight: 4)
     }
