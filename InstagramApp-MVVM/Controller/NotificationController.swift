@@ -18,6 +18,7 @@ class NotificationController: UITableViewController {
             tableView.reloadData()
         }
     }
+    private let refresher = UIRefreshControl()
     
     //MARK: - Lifecycle
     
@@ -56,9 +57,20 @@ class NotificationController: UITableViewController {
         tableView.register(NotificationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
+        
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refresher
     }
-}
 
+//MARK: - Selectors
+
+    @objc private func handleRefresh() {
+        self.notifications.removeAll()
+        fetchNotifications()
+        refresher.endRefreshing()
+    }
+
+}
 //MARK: - UITableViewDataSource
 
 extension NotificationController {
