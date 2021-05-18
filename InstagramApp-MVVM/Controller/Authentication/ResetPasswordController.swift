@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol ResetPasswordDelegate: class {
+    func controllerDidSendResetPasswordLink(_ controller: ResetPasswordController)
+}
+
 class ResetPasswordController: UIViewController {
     
     //MARK: - Properties
     
     private var viewModel = ResetPasswordViewModel()
+    
+    weak var delegate: ResetPasswordDelegate?
     
     private let emailTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Email", isSecureTextEntry: false)
@@ -64,7 +70,19 @@ class ResetPasswordController: UIViewController {
     }
     
     @objc private func handleResetPassword() {
+        guard let email = emailTextField.text else { return }
         
+        showLoader(true)
+        
+        AuthService.resetPassword(withEmail: email) { error in
+            if let error = error {
+                self.showLoader(false)
+                self.showMessage(withTitle: "Error", message: error.localizedDescription)
+                return
+            }
+            
+            self.delegate?.controllerDidSendResetPasswordLink(self)
+        }
     }
     
     @objc private func handleDismissal() {
