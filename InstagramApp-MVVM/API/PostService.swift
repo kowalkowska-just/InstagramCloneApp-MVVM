@@ -105,7 +105,7 @@ struct PostService {
         }
     }
     
-    static func updateUserFeedAfterFollowing(user: User) {
+    static func updateUserFeedAfterFollowing(user: User, didFollow: Bool) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
@@ -115,7 +115,12 @@ struct PostService {
             let docIDs = documents.map({ $0.documentID})
             
             docIDs.forEach { id in
-                COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
+                if didFollow {
+                    COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
+                } else {
+                    COLLECTION_USERS.document(uid).collection("user-feed").document(id).delete()
+                }
+                
             }
         }
     }
