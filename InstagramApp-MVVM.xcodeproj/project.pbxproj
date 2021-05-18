@@ -34,6 +34,7 @@
 		D13A8CD726371B5600D40FE7 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CD626371B5600D40FE7 /* CommentService.swift */; };
 		D13A8CDA26371F7A00D40FE7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CD926371F7A00D40FE7 /* Comment.swift */; };
 		D13A8CDE2637328D00D40FE7 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CDD2637328D00D40FE7 /* CommentViewModel.swift */; };
+		D18B1281265458C40078A91E /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B1280265458C40078A91E /* ResetPasswordController.swift */; };
 		D1999C48263B69330019301C /* HeaderCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C47263B69330019301C /* HeaderCommentView.swift */; };
 		D1999C4B26408D6A0019301C /* HeaderCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C4A26408D6A0019301C /* HeaderCommentViewModel.swift */; };
 		D1999C4E2640AD870019301C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1999C4D2640AD870019301C /* NotificationCell.swift */; };
@@ -91,6 +92,7 @@
 		D13A8CD626371B5600D40FE7 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		D13A8CD926371F7A00D40FE7 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D13A8CDD2637328D00D40FE7 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		D18B1280265458C40078A91E /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		D1999C47263B69330019301C /* HeaderCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCommentView.swift; sourceTree = "<group>"; };
 		D1999C4A26408D6A0019301C /* HeaderCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCommentViewModel.swift; sourceTree = "<group>"; };
 		D1999C4D2640AD870019301C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			children = (
 				D119EED626016EB400745E64 /* LoginController.swift */,
 				D119EED926016EC900745E64 /* RegistrationController.swift */,
+				D18B1280265458C40078A91E /* ResetPasswordController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				D19E9F512608D525001084C7 /* ProfileHeader.swift in Sources */,
 				D119EEC226001CC500745E64 /* FeedController.swift in Sources */,
 				D13A8CBB2628E42600D40FE7 /* InputTextView.swift in Sources */,
+				D18B1281265458C40078A91E /* ResetPasswordController.swift in Sources */,
 				D119EECE26001D5400745E64 /* ProfileController.swift in Sources */,
 				D1999C4E2640AD870019301C /* NotificationCell.swift in Sources */,
 				D13A8CBE2629D67400D40FE7 /* PostService.swift in Sources */,
