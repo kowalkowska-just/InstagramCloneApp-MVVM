@@ -15,11 +15,13 @@ class ResetPasswordController: UIViewController {
     
     //MARK: - Properties
     
+    var email: String?
+    
     private var viewModel = ResetPasswordViewModel()
     
     weak var delegate: ResetPasswordDelegate?
     
-    private let emailTextField: UITextField = {
+    private var emailTextField: UITextField = {
         let tf = CustomTextField(placeholder: "Email", isSecureTextEntry: false)
         tf.keyboardType = .emailAddress
         tf.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
@@ -92,6 +94,11 @@ class ResetPasswordController: UIViewController {
     //MARK: - Helper Functions
     
     private func configureUI() {
+        
+        emailTextField.text = email
+        viewModel.email = email
+        updateForm()
+        
         view.addGradientWithColors(.systemPurple, .systemBlue, direction: .topToBottom)
         
         view.addSubview(backButton)
