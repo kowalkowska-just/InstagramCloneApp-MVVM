@@ -50,6 +50,14 @@ struct PostViewModel {
         return post.didLike ? .red : .black
     }
     
+    var timestampString: String? {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .full
+        return formatter.string(from: post.timestamp.dateValue(), to: Date())
+    }
+    
     
     //MARK: - Initializer
     

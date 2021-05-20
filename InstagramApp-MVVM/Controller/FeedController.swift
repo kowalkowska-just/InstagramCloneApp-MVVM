@@ -38,6 +38,10 @@ class FeedController: UICollectionViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     //MARK: - Selectors
     
     @objc private func handleLogout() {
