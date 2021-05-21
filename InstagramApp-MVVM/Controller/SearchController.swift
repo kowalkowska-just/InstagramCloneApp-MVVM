@@ -8,6 +8,7 @@
 import UIKit
 
 private let reuseIdentifier = "UserCell"
+private let postCellIdentifier = "ProfileCell"
 
 class SearchController: UIViewController {
     
@@ -17,18 +18,31 @@ class SearchController: UIViewController {
     
     private var users = [User]()
     private var filteredUsers = [User]()
+    
+    private let posts = [Post]()
+    
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var inSearchMode: Bool {
         return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+        collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: postCellIdentifier)
+        return collectionView
+    }()
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureTableView()
+        configureUI()
         configureSearchController()
         fetchUsers()
     }
@@ -44,7 +58,7 @@ class SearchController: UIViewController {
     
     //MARK: - Helper Functions
     
-    private func configureTableView() {
+    private func configureUI() {
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -56,6 +70,9 @@ class SearchController: UIViewController {
         
         view.addSubview(tableView)
         tableView.fillSuperview()
+        
+        view.addSubview(collectionView)
+        collectionView.fillSuperview()
     }
     
     private func configureSearchController() {
@@ -77,7 +94,7 @@ extension SearchController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: postCellIdentifier, for: indexPath) as! UserCell
         let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
         cell.viewModel = UserCellViewModel(user: user)
         return cell
@@ -107,5 +124,26 @@ extension SearchController: UISearchResultsUpdating {
         print("Debug: Filtered users \(filteredUsers)")
         self.tableView.reloadData()
     }
+}
 
+//MARK: - UICollectionViewDataSource
+
+extension SearchController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+   
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
+        cell.viewModel = PostViewModel(post: posts[indexPath.row])
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+
+extension SearchController: UICollectionViewDelegate {
+    
 }
