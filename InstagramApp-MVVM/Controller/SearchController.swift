@@ -19,7 +19,7 @@ class SearchController: UIViewController {
     private var users = [User]()
     private var filteredUsers = [User]()
     
-    private let posts = [Post]()
+    private var posts = [Post]()
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -33,7 +33,6 @@ class SearchController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
-        collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: postCellIdentifier)
         return collectionView
     }()
     
@@ -45,6 +44,7 @@ class SearchController: UIViewController {
         configureUI()
         configureSearchController()
         fetchUsers()
+        fetchPosts()
     }
     
     //MARK: - API
@@ -53,6 +53,13 @@ class SearchController: UIViewController {
         UserService.fetchUsers { (users) in
             self.users = users
             self.tableView.reloadData()
+        }
+    }
+    
+    private func fetchPosts() {
+        PostService.fetchPosts { posts in
+            self.posts = posts
+            self.collectionView.reloadData()
         }
     }
     
@@ -70,6 +77,8 @@ class SearchController: UIViewController {
         
         view.addSubview(tableView)
         tableView.fillSuperview()
+        tableView.isHidden = true
+        collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: postCellIdentifier)
         
         view.addSubview(collectionView)
         collectionView.fillSuperview()
@@ -80,6 +89,7 @@ class SearchController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = false
     }
@@ -94,7 +104,7 @@ extension SearchController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: postCellIdentifier, for: indexPath) as! UserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
         let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
         cell.viewModel = UserCellViewModel(user: user)
         return cell
@@ -108,6 +118,26 @@ extension SearchController: UITableViewDelegate {
         print("DEBUG: User is \(users[indexPath.row].username)")
         let controller = ProfileController(user: users[indexPath.row])
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+//MARK: - UISearchBarDelegate
+
+extension SearchController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        
+        collectionView.isHidden = true
+        tableView.isHidden = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        
+        collectionView.isHidden = false
+        tableView.isHidden = true
     }
 }
 
@@ -136,7 +166,7 @@ extension SearchController: UICollectionViewDataSource {
     
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellIdentifier, for: indexPath) as! ProfileCell
         cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
@@ -145,5 +175,27 @@ extension SearchController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 
 extension SearchController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.post = posts[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension SearchController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (view.frame.width - 2) / 3
+        return CGSize(width: width, height: width)
+    }
 }
