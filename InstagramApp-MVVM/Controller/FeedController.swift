@@ -141,13 +141,21 @@ extension FeedController {
 
 extension FeedController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let width = view.frame.width
-        var height = width + 8 + 40 + 8
-        height += 50
-        height += 60
-
-        return CGSize(width: width, height: height)
+        
+        if let post = post {
+            let viewModel = PostViewModel(post: post)
+            let width = view.frame.width
+            let heightCaption = viewModel.size(forWidth: width).height + 31
+            let height = width + 126 + heightCaption
+            return CGSize(width: width, height: height)
+            
+        } else {
+            let viewModel = PostViewModel(post: posts[indexPath.row])
+            let width = view.frame.width
+            let heightCaption = viewModel.size(forWidth: width).height + 31
+            let height = width + 126 + heightCaption
+            return CGSize(width: width, height: height)
+        }
     }
 }
 

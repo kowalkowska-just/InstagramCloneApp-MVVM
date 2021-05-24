@@ -58,10 +58,20 @@ struct PostViewModel {
         return formatter.string(from: post.timestamp.dateValue(), to: Date())
     }
     
-    
     //MARK: - Initializer
     
     init(post: Post) {
         self.post = post
+    }
+    
+    // MARK: - Functions
+    
+    func size(forWidth width: CGFloat) -> CGSize {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.text = post.caption
+        label.lineBreakMode = .byWordWrapping
+        label.setWidth(width)
+        return label.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
 }
