@@ -33,6 +33,11 @@ class SearchController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
+        
         return collectionView
     }()
     
@@ -60,7 +65,15 @@ class SearchController: UIViewController {
         PostService.fetchPosts { posts in
             self.posts = posts
             self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
         }
+    }
+    
+    //MARK: - Selectors
+    
+    @objc func handleRefresh() {
+        posts.removeAll()
+        fetchPosts()
     }
     
     //MARK: - Helper Functions
