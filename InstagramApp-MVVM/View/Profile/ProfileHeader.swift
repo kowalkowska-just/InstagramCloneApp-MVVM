@@ -10,6 +10,9 @@ import SDWebImage
 
 protocol ProfileHeaderDelegate: class {
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User)
+    func selectedListView()
+    func selectedGirdView()
+    func selectedBookmarkView()
 }
 
 class ProfileHeader: UICollectionReusableView {
@@ -75,20 +78,26 @@ class ProfileHeader: UICollectionReusableView {
     private let gridButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "grid"), for: .normal)
+        button.tag = 1
+        button.addTarget(self, action: #selector(handleChangeCurrentView(sender:)), for: .touchUpInside)
         return button
     }()
     
     private let listButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "list"), for: .normal)
+        button.tag = 2
         button.tintColor = UIColor(white: 0, alpha: 0.2)
+        button.addTarget(self, action: #selector(handleChangeCurrentView(sender:)), for: .touchUpInside)
         return button
     }()
     
     private let bookmarkButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "ribbon"), for: .normal)
+        button.tag = 3
         button.tintColor = UIColor(white: 0, alpha: 0.2)
+        button.addTarget(self, action: #selector(handleChangeCurrentView(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -110,6 +119,27 @@ class ProfileHeader: UICollectionReusableView {
         guard let viewModel = viewModel else { return }
         delegate?.header(self, didTapActionButtonFor: viewModel.user)
     }
+    
+    @objc private func handleChangeCurrentView(sender: UIButton) {
+        [gridButton, listButton, bookmarkButton].forEach { button in
+            button.tintColor = UIColor(white: 0, alpha: 0.2)
+        }
+        
+        switch sender.tag {
+        case 1: print("DEBUG: Selected first button, called: gridButton..")
+            sender.tintColor = UIColor.systemBlue
+            delegate?.selectedGirdView()
+        case 2: print("DEBUG: Selected second button, called: listButton..")
+            sender.tintColor = UIColor.systemBlue
+            delegate?.selectedListView()
+        case 3: print("DEBUG: Selected third button, called: bookmarkButton..")
+            sender.tintColor = UIColor.systemBlue
+            delegate?.selectedBookmarkView()
+        default:
+            print("DEBUG: Failed to select button..")
+        }
+    }
+    
     
     //MARK: - Helper Functions
     

@@ -7,8 +7,16 @@
 
 import UIKit
 
+enum SelectedView {
+    case grid
+    case list
+    case bookmark
+}
+
 private let cellIdentifier = "ProfileCell"
 private let headerIdentifier = "ProfileHeader"
+private let reuseIdentifier = "FeedCell"
+
 
 class ProfileController: UICollectionViewController {
 
@@ -16,6 +24,8 @@ class ProfileController: UICollectionViewController {
     
     private var user: User
     private var posts = [Post]()
+    
+    private var selectedView: SelectedView = .grid
     
     //MARK: - Lifecycle
     
@@ -65,6 +75,7 @@ class ProfileController: UICollectionViewController {
     private func configureCollectionView() {
         navigationItem.title = user.username
         collectionView.backgroundColor = .white
+        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
@@ -79,9 +90,21 @@ extension ProfileController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
-        cell.viewModel = PostViewModel(post: posts[indexPath.row])
-        return cell
+        
+        switch selectedView {
+        case .grid:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+            return cell
+        case .list:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FeedCell
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+            return cell
+        case .bookmark:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+            return cell
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -115,8 +138,21 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width - 2) / 3
-        return CGSize(width: width, height: width)
+        
+        switch selectedView {
+        case .grid:
+            let width = (view.frame.width - 2) / 3
+            return CGSize(width: width, height: width)
+        case .list:
+            let viewModel = PostViewModel(post: posts[indexPath.row])
+            let width = view.frame.width
+            let heightCaption = viewModel.size(forWidth: width).height + 31
+            let height = width + heightCaption + 100
+            return CGSize(width: width, height: height)
+        case .bookmark:
+            let width = (view.frame.width - 2) / 3
+            return CGSize(width: width, height: width)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -127,6 +163,21 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 //MARK: - ProfileHeaderDelegate
 
 extension ProfileController: ProfileHeaderDelegate {
+    
+    func selectedListView() {
+        self.selectedView = .list
+        self.collectionView.reloadData()
+    }
+    
+    func selectedGirdView() {
+        self.selectedView = .grid
+        self.collectionView.reloadData()
+    }
+    
+    func selectedBookmarkView() {
+        self.selectedView = .bookmark
+        self.collectionView.reloadData()
+    }
     
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
         

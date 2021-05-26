@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "FeedCell"
 
 class FeedController: UICollectionViewController {
 
@@ -146,14 +146,14 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
             let viewModel = PostViewModel(post: post)
             let width = view.frame.width
             let heightCaption = viewModel.size(forWidth: width).height + 31
-            let height = width + 126 + heightCaption
+            let height = width + heightCaption + 100
             return CGSize(width: width, height: height)
             
         } else {
             let viewModel = PostViewModel(post: posts[indexPath.row])
             let width = view.frame.width
             let heightCaption = viewModel.size(forWidth: width).height + 31
-            let height = width + 126 + heightCaption
+            let height = width + heightCaption + 100
             return CGSize(width: width, height: height)
         }
     }
