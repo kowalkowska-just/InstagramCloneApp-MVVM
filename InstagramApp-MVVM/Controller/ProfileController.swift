@@ -64,10 +64,18 @@ class ProfileController: UICollectionViewController {
     }
     
     private func fetchPosts() {
-        PostService.fetchPosts(forUser: user.uid) { (posts) in
+        PostService.fetchPosts(forUser: user.uid) { posts in
             self.posts = posts
             self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
         }
+    }
+    
+    //MARK: - Selectors
+    
+    @objc func handleRefresh() {
+        posts.removeAll()
+        fetchPosts()
     }
     
     //MARK: - Helper Functions
@@ -79,6 +87,10 @@ class ProfileController: UICollectionViewController {
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
 }
 
