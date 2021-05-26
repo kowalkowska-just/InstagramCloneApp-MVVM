@@ -94,7 +94,9 @@ class ProfileHeader: UICollectionReusableView {
     
     private let bookmarkButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "ribbon"), for: .normal)
+        button.setImage(UIImage(named: "bookmark_logo"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.setDimensions(height: 35, width: 35)
         button.tag = 3
         button.tintColor = UIColor(white: 0, alpha: 0.2)
         button.addTarget(self, action: #selector(handleChangeCurrentView(sender:)), for: .touchUpInside)
@@ -126,17 +128,17 @@ class ProfileHeader: UICollectionReusableView {
         }
         
         switch sender.tag {
-        case 1: print("DEBUG: Selected first button, called: gridButton..")
+        case 1:
             sender.tintColor = UIColor.systemBlue
             delegate?.selectedGirdView()
-        case 2: print("DEBUG: Selected second button, called: listButton..")
+        case 2:
             sender.tintColor = UIColor.systemBlue
             delegate?.selectedListView()
-        case 3: print("DEBUG: Selected third button, called: bookmarkButton..")
+        case 3:
             sender.tintColor = UIColor.systemBlue
             delegate?.selectedBookmarkView()
         default:
-            print("DEBUG: Failed to select button..")
+            return
         }
     }
     
@@ -222,7 +224,6 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     private func configure() {
-        print("DEBUG: Did call configure function..")
         guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)

@@ -16,6 +16,7 @@ enum SelectedView {
 private let cellIdentifier = "ProfileCell"
 private let headerIdentifier = "ProfileHeader"
 private let reuseIdentifier = "FeedCell"
+private let bookmarkIdentifier = "BookmarkIdentifier"
 
 
 class ProfileController: UICollectionViewController {
@@ -24,7 +25,6 @@ class ProfileController: UICollectionViewController {
     
     private var user: User
     private var posts = [Post]()
-    
     private var selectedView: SelectedView = .grid
     
     //MARK: - Lifecycle
@@ -75,6 +75,7 @@ class ProfileController: UICollectionViewController {
     private func configureCollectionView() {
         navigationItem.title = user.username
         collectionView.backgroundColor = .white
+        collectionView.register(BookmarkCell.self, forCellWithReuseIdentifier: bookmarkIdentifier)
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
@@ -86,7 +87,7 @@ class ProfileController: UICollectionViewController {
 extension ProfileController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
+        return selectedView == .bookmark ? 1 : posts.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,8 +102,7 @@ extension ProfileController {
             cell.viewModel = PostViewModel(post: posts[indexPath.row])
             return cell
         case .bookmark:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
-            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bookmarkIdentifier, for: indexPath) as! BookmarkCell
             return cell
         }
     }
@@ -119,6 +119,11 @@ extension ProfileController {
 
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if selectedView == .bookmark {
+            return
+        }
+        
         let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         controller.post = posts[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
@@ -147,10 +152,10 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
             let viewModel = PostViewModel(post: posts[indexPath.row])
             let width = view.frame.width
             let heightCaption = viewModel.size(forWidth: width).height + 31
-            let height = width + heightCaption + 100
+            let height = width + heightCaption + 126
             return CGSize(width: width, height: height)
         case .bookmark:
-            let width = (view.frame.width - 2) / 3
+            let width = view.frame.width
             return CGSize(width: width, height: width)
         }
     }
@@ -165,18 +170,18 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 extension ProfileController: ProfileHeaderDelegate {
     
     func selectedListView() {
-        self.selectedView = .list
-        self.collectionView.reloadData()
+        selectedView = .list
+        collectionView.reloadData()
     }
     
     func selectedGirdView() {
-        self.selectedView = .grid
-        self.collectionView.reloadData()
+        selectedView = .grid
+        collectionView.reloadData()
     }
     
     func selectedBookmarkView() {
-        self.selectedView = .bookmark
-        self.collectionView.reloadData()
+        selectedView = .bookmark
+        collectionView.reloadData()
     }
     
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {

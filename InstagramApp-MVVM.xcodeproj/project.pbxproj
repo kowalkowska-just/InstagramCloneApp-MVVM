@@ -21,6 +21,7 @@
 		D119EED426003B8C00745E64 /* Extension - UIView - constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED326003B8C00745E64 /* Extension - UIView - constraints.swift */; };
 		D119EED726016EB400745E64 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED626016EB400745E64 /* LoginController.swift */; };
 		D119EEDA26016EC900745E64 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119EED926016EC900745E64 /* RegistrationController.swift */; };
+		D138137B265EB98200BADEBA /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138137A265EB98200BADEBA /* BookmarkCell.swift */; };
 		D13A8CB4262224A300D40FE7 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CB3262224A300D40FE7 /* UserCellViewModel.swift */; };
 		D13A8CB826277B0600D40FE7 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CB726277B0600D40FE7 /* UploadPostController.swift */; };
 		D13A8CBB2628E42600D40FE7 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A8CBA2628E42600D40FE7 /* InputTextView.swift */; };
@@ -80,6 +81,7 @@
 		D119EED326003B8C00745E64 /* Extension - UIView - constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - UIView - constraints.swift"; sourceTree = "<group>"; };
 		D119EED626016EB400745E64 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D119EED926016EC900745E64 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		D138137A265EB98200BADEBA /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 		D13A8CB3262224A300D40FE7 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		D13A8CB726277B0600D40FE7 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 		D13A8CBA2628E42600D40FE7 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				D13A8CCF2636083100D40FE7 /* CommentInputAccesoryView.swift */,
 				D1999C47263B69330019301C /* HeaderCommentView.swift */,
 				D1999C4D2640AD870019301C /* NotificationCell.swift */,
+				D138137A265EB98200BADEBA /* BookmarkCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				D13A8CB4262224A300D40FE7 /* UserCellViewModel.swift in Sources */,
 				D1999C54264349270019301C /* NotificationService.swift in Sources */,
 				D19E9F5A26094405001084C7 /* UserService.swift in Sources */,
+				D138137B265EB98200BADEBA /* BookmarkCell.swift in Sources */,
 				D13A8CC42630496200D40FE7 /* Post.swift in Sources */,
 				D13A8CC1262E274300D40FE7 /* Extension - UIViewController - JGProgressHUD.swift in Sources */,
 				D19E9F4B2606B292001084C7 /* AuthService.swift in Sources */,
