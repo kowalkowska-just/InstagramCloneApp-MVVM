@@ -87,11 +87,10 @@ class MainTabController: UITabBarController {
     
     private func didFinishPickingMedia(picker: YPImagePicker) {
         picker.didFinishPicking { (items, _) in
+            
             picker.dismiss(animated: false) {
                 guard let selectedImage = items.singlePhoto?.image else { return }
-                
-                print("DEBUG: Selected image is \(selectedImage)")
-                
+                                
                 let controller = UploadPostController()
                 
                 controller.delegate = self
@@ -123,7 +122,6 @@ extension MainTabController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         let index = viewControllers?.firstIndex(of: viewController)
-        print("DEBUG: Index of view controller is \(index)")
         
         if index == 2 {
             var config = YPImagePickerConfiguration()
@@ -143,11 +141,12 @@ extension MainTabController: UITabBarControllerDelegate {
             picker.didFinishPicking { [unowned picker] items, cancelled in
                 if cancelled {
                     tabBarController.selectedIndex = 0
+                    picker.dismiss(animated: true, completion: nil)
+                } else {
+                    self.didFinishPickingMedia(picker: picker)
                 }
-                picker.dismiss(animated: true, completion: nil)
             }
         }
-        
         return true
     }
 }

@@ -101,7 +101,10 @@ class UploadPostController: UIViewController {
     //MARK: - Selectors
     
     @objc private func didTapCancel() {
-        dismiss(animated: true, completion: nil)
+        let controller = MainTabController()
+        controller.selectedIndex = 0
+        controller.modalPresentationStyle = .fullScreen
+        navigationController?.present(controller, animated: true, completion: nil)
     }
     
     @objc private func didTapDone() {
