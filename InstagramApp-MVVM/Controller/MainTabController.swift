@@ -139,6 +139,13 @@ extension MainTabController: UITabBarControllerDelegate {
             picker.modalPresentationStyle = .fullScreen
             present(picker, animated: true, completion: nil)
             didFinishPickingMedia(picker: picker)
+            
+            picker.didFinishPicking { [unowned picker] items, cancelled in
+                if cancelled {
+                    tabBarController.selectedIndex = 0
+                }
+                picker.dismiss(animated: true, completion: nil)
+            }
         }
         
         return true
