@@ -41,6 +41,7 @@ class ProfileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPurple
+        configureNavigationController()
         configureCollectionView()
         checkIfUserIsFollowed()
         fetchUserStats()
@@ -78,10 +79,42 @@ class ProfileController: UICollectionViewController {
         fetchPosts()
     }
     
+    @objc func tappedMenuButton() {
+        print("DEBUG: Tapped in Menu Button..")
+    }
+    
     //MARK: - Helper Functions
     
+    private func configureNavigationController() {
+        
+        //Left title
+        let title = UILabel()
+        title.text = user.username
+        title.font = UIFont.boldSystemFont(ofSize: 22)
+        title.sizeToFit()
+        
+        let leftItem = UIBarButtonItem(customView: title)
+        self.navigationItem.leftBarButtonItem = leftItem
+        
+        //Remove border
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        //RightButton
+        let barButton = UIButton()
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let image = UIImage(named: "hamburger")
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(tappedMenuButton), for: .touchUpInside)
+        
+        barButton.addSubview(button)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: barButton)
+    }
+    
     private func configureCollectionView() {
-        navigationItem.title = user.username
         collectionView.backgroundColor = .white
         collectionView.register(BookmarkCell.self, forCellWithReuseIdentifier: bookmarkIdentifier)
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
