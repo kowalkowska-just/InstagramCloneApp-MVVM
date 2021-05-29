@@ -13,6 +13,9 @@ protocol ProfileHeaderDelegate: class {
     func selectedListView()
     func selectedGirdView()
     func selectedBookmarkView()
+    func showPosts()
+    func showFollowers()
+    func showFollowing()
 }
 
 class ProfileHeader: UICollectionReusableView {
@@ -155,15 +158,15 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     @objc private func didTapPostsLabel() {
-        print("DEBUG: Tapped in number of posts label..")
+        delegate?.showPosts()
     }
     
     @objc private func didTapFollowersLabel() {
-        print("DEBUG: Tapped in followers label..")
+        delegate?.showFollowers()
     }
     
     @objc private func didTapFollowingLabel() {
-        print("DEBUG: Tapped in following label..")
+        delegate?.showFollowing()
     }
     
     
@@ -241,12 +244,12 @@ class ProfileHeader: UICollectionReusableView {
         topDivider.anchor(top: buttonStack.topAnchor,
                           left: leftAnchor,
                           right: rightAnchor,
-                          height: 0.5)
+                          height: 0.3)
         
         bottomDivider.anchor(top: buttonStack.bottomAnchor,
                              left: leftAnchor,
                              right: rightAnchor,
-                             height: 0.5)
+                             height: 0.3)
     }
     
     private func configure() {

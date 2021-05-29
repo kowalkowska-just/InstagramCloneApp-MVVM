@@ -26,6 +26,7 @@ class ProfileController: UICollectionViewController {
     private var user: User
     private var posts = [Post]()
     private var selectedView: SelectedView = .grid
+    private var isPostsLabelTapped: Bool = false
     
     //MARK: - Lifecycle
     
@@ -74,12 +75,12 @@ class ProfileController: UICollectionViewController {
     
     //MARK: - Selectors
     
-    @objc func handleRefresh() {
+    @objc private func handleRefresh() {
         posts.removeAll()
         fetchPosts()
     }
     
-    @objc func tappedMenuButton() {
+    @objc private func tappedMenuButton() {
         print("DEBUG: Tapped in Menu Button..")
     }
     
@@ -97,7 +98,7 @@ class ProfileController: UICollectionViewController {
         self.navigationItem.leftBarButtonItem = leftItem
         
         //Remove border
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "white"), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
         //RightButton
@@ -163,6 +164,22 @@ extension ProfileController {
 //MARK: - UICollectionViewDelegate
 
 extension ProfileController {
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.panGestureRecognizer.translation(in: scrollView.superview).y > 0) {
+            if isPostsLabelTapped {
+                UIView.animate(withDuration: 1.1) {
+                    
+                    guard let nav = self.navigationController else { return }
+                    let heightNav = nav.navigationBar.frame.height
+                    
+                    self.view.frame.origin.y = 0 + heightNav * 2
+                    self.isPostsLabelTapped = false
+                }
+            }
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if selectedView == .bookmark {
@@ -213,6 +230,24 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 //MARK: - ProfileHeaderDelegate
 
 extension ProfileController: ProfileHeaderDelegate {
+    
+    func showPosts() {
+        isPostsLabelTapped = true
+        
+        UIView.animate(withDuration: 1.1) {
+            self.view.frame.origin.y = -96
+        }
+    }
+    
+    func showFollowers() {
+        print("DEBUG: Tapped in followers label..")
+
+    }
+    
+    func showFollowing() {
+        print("DEBUG: Tapped in following label..")
+
+    }
     
     func selectedListView() {
         selectedView = .list
