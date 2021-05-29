@@ -10,7 +10,7 @@ import Firebase
 typealias FirestoreCompletion = (Error?) -> Void
 
 struct UserService {
-    
+        
     static func fetchUser(withUid uid: String, complition: @escaping(User) -> Void) {
                 
         COLLECTION_USERS.document(uid).getDocument { (snapshot, error) in
@@ -73,6 +73,40 @@ struct UserService {
                     completion(UserState(followers: followers, following: following, posts: posts))
                 }
             }
+        }
+    }
+    
+    static func fetchFollowers(forUser uid: String, completion: @escaping([User]) -> Void) {
+        
+        var followers = [User]()
+        
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, error in
+            
+            guard let snapshot = snapshot else { return }
+            
+            snapshot.documents.forEach({ document in
+                fetchUser(withUid: document.documentID) { follower in
+                    followers.append(follower)
+                    completion(followers)
+                }
+            })
+        }
+    }
+    
+    static func fetchFollowing(forUser uid: String, completion: @escaping([User]) -> Void) {
+        
+        var usersFollowing = [User]()
+        
+        COLLECTION_FOLLOWERS.document(uid).collection("user-following").getDocuments { snapshot, error in
+            
+            guard let snapshot = snapshot else { return }
+            
+            snapshot.documents.forEach({ document in
+                fetchUser(withUid: document.documentID) { userFollowing in
+                    usersFollowing.append(userFollowing)
+                    completion(usersFollowing)
+                }
+            })
         }
     }
 }

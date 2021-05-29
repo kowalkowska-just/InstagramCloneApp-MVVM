@@ -31,7 +31,7 @@ struct PostService {
         COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else { return }
             
-            let posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data())})
+            let posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
             completion(posts)
         }
     }

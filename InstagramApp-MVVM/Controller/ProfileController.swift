@@ -47,6 +47,9 @@ class ProfileController: UICollectionViewController {
         checkIfUserIsFollowed()
         fetchUserStats()
         fetchPosts()
+        UserService.fetchFollowers(forUser: user.uid) { followers in
+            print("DEBUG: Followers \(followers)")
+        }
     }
     
     //MARK: - API

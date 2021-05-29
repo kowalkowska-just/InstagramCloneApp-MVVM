@@ -160,11 +160,9 @@ extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
-        print("DEBUG: Search text \(searchText)")
         
         filteredUsers = users.filter({ $0.username.contains(searchText) || $0.fullname.lowercased().contains(searchText) })
         
-        print("Debug: Filtered users \(filteredUsers)")
         self.tableView.reloadData()
     }
 }
