@@ -58,6 +58,10 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapPostsLabel))
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -65,6 +69,10 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapFollowersLabel))
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -72,6 +80,10 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapFollowingLabel))
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -141,6 +153,20 @@ class ProfileHeader: UICollectionReusableView {
             return
         }
     }
+    
+    @objc private func didTapPostsLabel() {
+        print("DEBUG: Tapped in number of posts label..")
+    }
+    
+    @objc private func didTapFollowersLabel() {
+        print("DEBUG: Tapped in followers label..")
+    }
+    
+    @objc private func didTapFollowingLabel() {
+        print("DEBUG: Tapped in following label..")
+    }
+    
+    
     
     
     //MARK: - Helper Functions

@@ -136,7 +136,6 @@ extension MainTabController: UITabBarControllerDelegate {
             let picker = YPImagePicker(configuration: config)
             picker.modalPresentationStyle = .fullScreen
             present(picker, animated: true, completion: nil)
-            didFinishPickingMedia(picker: picker)
             
             picker.didFinishPicking { [unowned picker] items, cancelled in
                 if cancelled {
